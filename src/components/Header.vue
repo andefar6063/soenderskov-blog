@@ -23,7 +23,7 @@ const toggleMenu = () => {
         </h2>
         <div class="hidden md:block">
           <HeaderLink
-            v-for="item in ['Home', 'Blog', 'About']"
+            v-for="item in ['Home', 'Blog', 'About', 'Quiz']"
             :key="item"
             :href="item === 'Home' ? '/' : `/${item.toLowerCase()}`"
             class="text-textprimary hover:text-primary transition-colors duration-300 font-medium ml-6"
@@ -48,28 +48,23 @@ const toggleMenu = () => {
               stroke-linejoin="round"
               stroke-width="2"
               d="M4 6h16M4 12h16m-7 6h7"
-            />
+            ></path>
           </svg>
         </button>
       </div>
     </nav>
-    <transition
-      enter-to-class="opacity-100 translate-y-0 scale-100"
-      leave-to-class="opacity-0 -translate-y-0 scale-100"
-    >
-      <div v-if="isMenuOpen" class="md:hidden shadow-lg overflow-hidden">
-        <nav class="container mx-auto px-4 py-2">
-          <HeaderLink
-            v-for="item in ['Home', 'Blog', 'About']"
-            :key="item"
-            :href="item === 'Home' ? '/' : `/${item.toLowerCase()}`"
-            class="block py-2 text-textprimary hover:text-primary transition-colors duration-300 font-medium"
-            @click="isMenuOpen = false"
-          >
-            {{ item }}
-          </HeaderLink>
-        </nav>
-      </div>
-    </transition>
+    <div v-if="isMenuOpen" class="md:hidden shadow-lg">
+      <nav class="container mx-auto px-4 py-2">
+        <HeaderLink
+          v-for="item in ['Home', 'Blog', 'About', 'Quiz']"
+          :key="item"
+          :href="item === 'Home' ? '/' : `/${item.toLowerCase()}`"
+          class="block py-2 text-textprimary hover:text-primary transition-colors duration-300 font-medium"
+          @click="isMenuOpen = false"
+        >
+          {{ item }}
+        </HeaderLink>
+      </nav>
+    </div>
   </header>
 </template>
