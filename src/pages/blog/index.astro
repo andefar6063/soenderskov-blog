@@ -1,0 +1,53 @@
+---
+import BaseHead from "../../components/BaseHead.astro";
+import Header from "../../components/Header.vue";
+import Footer from "../../components/Footer.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
+import { getCollection } from "astro:content";
+import FormattedDate from "../../components/FormattedDate.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="bg-greyprimary text-textprimary">
+    <Header client:load />
+    <main class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 class="text-4xl font-bold mb-8">Blog Posts</h1>
+      <section>
+        <ul class="space-y-8">
+          {
+            posts.map((post) => (
+              <li class="bg-greysecondary rounded-lg overflow-hidden shadow-md transition-transform duration-300 hover:scale-105">
+                <a href={`/blog/${post.slug}/`} class="block">
+                  <img
+                    width={720}
+                    height={360}
+                    src={post.data.heroImage}
+                    alt=""
+                    class="w-full h-48 object-cover"
+                  />
+                  <div class="p-4">
+                    <h4 class="text-xl font-semibold mb-2">
+                      {post.data.title}
+                    </h4>
+                    <p class="text-sm text-textprimary opacity-75">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                  </div>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>

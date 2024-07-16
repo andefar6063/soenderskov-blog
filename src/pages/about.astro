@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/BlogPost.astro";
+---
+
+<Layout
+  title="About Me"
+  description="Learn more about me and my skills."
+  pubDate={new Date("July 15 2024")}
+  heroImage="/blog-placeholder-about.jpg"
+>
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <p class="text-lg text-textprimary mb-6">
+      My coding journey began right when I turned 15. My initial thought was to
+      make a robot that could buy exclusive products. I called it Eternity AIO,
+      which became my first Python project. Although Eternity AIO didn't succeed
+      as planned, it laid the foundation for my programming and business skills.
+    </p>
+
+    <p class="text-lg text-textprimary mb-6">
+      Following this, I got into web development, but my learning was briefly
+      paused due to an exchange trip to the United States. In 2023, I got back
+      at it, diving back into web development. Since then, I've been coding
+      daily, expanding my expertise beyond Python and web technologies to
+      include Go and frameworks like Vue and Astro.
+    </p>
+
+    <h3 class="text-2xl font-bold text-textprimary mt-8 mb-4">Key Projects:</h3>
+    <ul class="space-y-4">
+      <li class="bg-greysecondary p-4 rounded-md">
+        <strong class="text-primary">Eternity AIO:</strong>
+        <span class="text-textprimary">
+          An All-In-One CLI application designed to assist customers in
+          purchasing exclusive products.
+        </span>
+      </li>
+      <li class="bg-greysecondary p-4 rounded-md">
+        <strong class="text-primary">Sneakers Council:</strong>
+        <span class="text-textprimary"
+          >An e-commerce platform specializing in exclusive sneakers.</span
+        >
+      </li>
+      <li class="bg-greysecondary p-4 rounded-md">
+        <strong class="text-primary">The Soenderskov Blog:</strong>
+        <span class="text-textprimary">
+          My personal blog where I share my thoughts, experiences, and explore
+          topics that intrigue me.
+        </span>
+      </li>
+    </ul>
+  </div>
+</Layout>
