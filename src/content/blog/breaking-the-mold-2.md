@@ -1,7 +1,7 @@
 ---
 title: "Breaking the Mold - Terminal Shop"
 description: "2nd 'Breaking the Mold' post! Today's topic is Terminal Shop."
-pubDate: "Jul 24 2023"
+pubDate: "Jul 24 2024"
 heroImage: "/btm.jpg"
 ---
 
